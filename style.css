@@ -18,7 +18,7 @@
   --table-heading-background-color: #092d38;
   --table-data-odd-background-color: rgba(6, 22, 27, 0.5);
   --table-data-even-background-color: #06181c;
-  --table-data-border-color: #4a808c;
+  --table-border-color: #4a808c;
 
   --remove-button-color: #f75a68;
 
@@ -39,6 +39,12 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -52,7 +58,7 @@ a {
 }
 
 #app {
-  padding: 11.5rem 16rem;
+  padding: 11.5rem 10%;
 }
 
 .header {
@@ -74,8 +80,6 @@ a {
   padding: 1.6rem;
 
   background-color: var(--input-background-color);
-
-  border: none;
   border-radius: 5px;
 }
 
@@ -101,4 +105,90 @@ a {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+}
+
+main {
+  border-radius: 12px;
+  max-width: 1128px;
+  border: 1px solid var(--table-border-color);
+  width: fit-content;
+}
+
+.table {
+  border-collapse: collapse;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.table tr * {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 160%;
+}
+
+.table th {
+  padding: 1.6rem 4rem 1.6rem;
+
+  background-color: var(--table-heading-background-color);
+
+  text-align: left;
+}
+
+.table th:first-child {
+  border-radius: 12px 0 0 0;
+}
+
+.table th:last-child {
+  border-radius: 0 12px 0 0;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: var(--table-data-odd-background-color);
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: var(--table-data-even-background-color);
+
+  border: 1px solid var(--table-border-color);
+}
+
+.table tbody tr:last-child {
+  border: none;
+  border-top: 1px solid var(--table-border-color);
+}
+
+.table td {
+  padding: 2.4rem 4rem;
+}
+
+.table .github-user {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.table .github-user .github-user__image {
+  width: 56px;
+  height: 56px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+.table .github-user .github-user__user {
+  font-weight: 400;
+}
+
+.table tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 12px;
+}
+
+.table tbody tr:last-child td:last-child {
+  border-radius: 0 0 12px 0;
+}
+
+.remove-user {
+  color: var(--remove-button-color);
 }
