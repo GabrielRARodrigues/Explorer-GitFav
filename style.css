@@ -45,6 +45,10 @@ button {
   border: none;
 }
 
+input {
+  border: none;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -58,7 +62,9 @@ button {
 }
 
 #app {
-  padding: 11.5rem 10%;
+  padding: 11.5rem 0;
+  margin: 0 auto;
+  max-width: 1120px;
 }
 
 .header {
@@ -109,9 +115,7 @@ button {
 
 main {
   border-radius: 12px;
-  max-width: 1128px;
   border: 1px solid var(--table-border-color);
-  width: fit-content;
 }
 
 .table {
@@ -133,10 +137,14 @@ main {
   background-color: var(--table-heading-background-color);
 
   text-align: left;
+
+  width: 25%;
 }
 
 .table th:first-child {
   border-radius: 12px 0 0 0;
+
+  width: 50.4rem;
 }
 
 .table th:last-child {
@@ -166,6 +174,10 @@ main {
   display: flex;
   gap: 1.6rem;
   align-items: center;
+
+  width: 50.4rem;
+
+  border-radius: 0 0 0 12px;
 }
 
 .table .github-user .github-user__image {
