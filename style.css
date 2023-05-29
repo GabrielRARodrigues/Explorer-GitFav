@@ -119,12 +119,34 @@ main {
 }
 
 .table {
+  display: block;
   border-collapse: collapse;
 
   overflow-y: auto;
   overflow-x: hidden;
+
+  scroll-behavior: smooth;
+
+  max-height: 700px;
 }
 
+.table {
+  scrollbar-width: thin;
+  scrollbar-color: black transparent;
+}
+
+.table::-webkit-scrollbar-track {
+  background-color: none;
+}
+
+.table::-webkit-scrollbar {
+  width: 6px;
+}
+
+.table::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #4a808c;
+}
 .table tr * {
   font-size: 2rem;
   font-weight: 700;
@@ -149,6 +171,36 @@ main {
 
 .table th:last-child {
   border-radius: 0 12px 0 0;
+}
+
+.table .empty-row {
+  display: grid;
+  place-items: center;
+
+  background-color: #030b0d;
+
+  height: 624px;
+  width: 1120px;
+}
+
+.table .empty-row div {
+  display: flex;
+  gap: 6rem;
+
+  align-items: center;
+}
+
+.table .empty-row div img {
+  width: 13.2rem;
+}
+
+.table .empty-row div h2 {
+  font-size: 4rem;
+  font-family: 'Roboto Mono', sans-serif;
+  color: #4e5455;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
 }
 
 .table tbody tr:nth-child(odd) {
