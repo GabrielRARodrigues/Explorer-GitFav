@@ -5,15 +5,26 @@ export class Favorites {
     this.root = document.querySelector(root)
     this.entries = JSON.parse(localStorage.getItem('@githubFavorites:')) || []
   }
-
   async add(username) {
-    const user = await GithubUser.search(username)
+    try {
+      const userExists = this.entries.find(entry => entry.login === username)
 
-    console.log(user)
+      if (userExists) {
+        throw new Error('Usuário já cadastrado')
+      }
 
-    this.entries = [...this.entries, user]
-    this.update()
-    this.save()
+      const user = await GithubUser.search(username)
+
+      if (user.login === undefined) {
+        throw new Error('Usuário não encontrado')
+      }
+
+      this.entries = [...this.entries, user]
+      this.update()
+      this.save()
+    } catch (error) {
+      alert(error.message)
+    }
   }
 
   save() {
